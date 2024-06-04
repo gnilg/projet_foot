@@ -1,34 +1,45 @@
- <?php 
+<?php 
 
- 
- if(isset($_POST['firstname']) && isset($_POST['username']) && isset($_POST['password'])){
-   $firstname = $_POST['firstname'];
-   $username = $_POST['username'];
-   $password = $_POST['password'];
-    include "../php/db_conn.php";
+if(isset($_POST['fname']) && 
+   isset($_POST['uname']) && 
+   isset($_POST['pass'])){
 
-   $data = "&firstname=".$firstname."&username=".$username;
+    include "../db_conn.php";
 
-   if(empty($firstname)){
-        $erreur_message = "Veullez saisir votre Nom";
-        header("Location: ../index.php?error=$erreur_message&$data");
-        exit;
-   }else if(empty($username)){
-        $erreur_message = "Veullez saisir votre Nom d'utilisateur ";
-        header("Location: ../index.php?error=$erreur_message&$data");
-        exit;
-    } else if(empty($password)){
-        $erreur_message = "Veullez saisir votre mot de pass";
-        header("Location: ../index.php?error=$erreur_message&$data");
-        exit;
+    $fname = $_POST['fname'];
+    $uname = $_POST['uname'];
+    $pass = $_POST['pass'];
+
+    $data = "fname=".$fname."&uname=".$uname;
+    
+    if (empty($fname)) {
+    	$em = "Full name is required";
+    	header("Location: ../index.php?error=$em&$data");
+	    exit;
+    }else if(empty($uname)){
+    	$em = "User name is required";
+    	header("Location: ../index.php?error=$em&$data");
+	    exit;
+    }else if(empty($pass)){
+    	$em = "Password is required";
+    	header("Location: ../index.php?error=$em&$data");
+	    exit;
     }else {
-        $sql = "INSERT INTO users(firstname, username, password) VALUES(?,?,?) ";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$firstname, $username, $password]);
+
+    	// hashing the password
+    	$pass = password_hash($pass, PASSWORD_DEFAULT);
+
+    	$sql = "INSERT INTO users(fname, username, password) 
+    	        VALUES(?,?,?)";
+    	$stmt = $conn->prepare($sql);
+    	$stmt->execute([$fname, $uname, $pass]);
+
+    	header("Location: ../index.php?success=Your account has been created successfully");
+	    exit;
     }
 
 
- }else{
-    header("Location: index.php?error=error");
-    exit;
- }
+}else {
+	header("Location: ../index.php?error=error");
+	exit;
+}
