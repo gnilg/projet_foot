@@ -55,6 +55,20 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Présentation du Joueur</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/photos-premium/vue-panoramique-stade-football-vide-par-journee-ensoleillee-champ-vert-lignes-blanches-ciel-bleu-nuages-blancs_1187703-58816.jpg?size=626&ext=jpg&ga=GA1.1.1208765684.1717925982&semt=sph');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -151,10 +165,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
     </div>
 </body>
 </html>
-
 <?php 
 } else {
-    header("Location: login.php");
+    header("Location:./php/login.php");
     exit;
 }
 ?>

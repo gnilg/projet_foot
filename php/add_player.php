@@ -27,41 +27,60 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Formulaire de Saisie de Joueur</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
         <style>
-            form {
-                max-width: 600px;
-                margin: 0 auto;
-                padding: 1em;
-                background: #f9f9f9;
-                border-radius: 5px;
-            }
-            div {
-                margin-bottom: 1em;
-            }
-            label {
-                margin-bottom: .5em;
-                color: #333333;
-                display: block;
-            }
-            input, select, textarea {
-                border: 1px solid #CCCCCC;
-                padding: .5em;
-                font-size: 1em;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            button {
-                padding: 0.7em;
-                color: #fff;
-                background-color: #007BFF;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            button:hover {
-                background-color: #0056b3;
-            }
+    body {
+    background-image: url('https://img.freepik.com/photos-premium/vue-panoramique-stade-football-vide-par-journee-ensoleillee-champ-vert-lignes-blanches-ciel-bleu-nuages-blancs_1187703-58816.jpg?size=626&ext=jpg&ga=GA1.1.1208765684.1717925982&semt=sph');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Couleur de fond pour le conteneur du formulaire */
+    border-radius: 10px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Couleur de fond pour le formulaire */
+}
+
+div {
+    margin-bottom: 1em;
+}
+
+label {
+    margin-bottom: .5em;
+    color: #333333;
+    display: block;
+}
+
+input, select, textarea {
+    border: 1px solid #CCCCCC;
+    padding: .5em;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 0.7em;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff; /* Couleur de fond pour le bouton */
+}
+
+button:hover {
+    background-color: #0056b3; /* Couleur de fond au survol du bouton */
+}
+
         </style>
     </head>
     <body>
